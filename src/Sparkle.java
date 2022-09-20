@@ -48,13 +48,24 @@ public class Sparkle {
 	}
 	
 	//set spawn location
-	public void setLocation(int xi, int yi) {
+	public void setLocation(float xi, float yi) {
 		x = xi;
 		y = yi;
 	}
 	
+	//
+	public void setAcceleration(float xi, float yi) {
+		ax = xi;
+		ay = yi;
+	}
+	
 	//spawn i new particles
 	public void spawn(int i) {
+		for(;i > 0; i--)particles.add(new Particle(x+rand.nextFloat()-0.5f,y+rand.nextFloat()-0.5f,rand.nextFloat()*spreadX*2-spreadX, rand.nextFloat()*spreadY*2-spreadY, ax, ay, (rand.nextInt(30) + 70)/100.0f * s, c.clone(), d));
+	}
+	
+	//spawn i new particles at (x,y)
+	public void spawn(int i, float x, float y) {
 		for(;i > 0; i--)particles.add(new Particle(x+rand.nextFloat()-0.5f,y+rand.nextFloat()-0.5f,rand.nextFloat()*spreadX*2-spreadX, rand.nextFloat()*spreadY*2-spreadY, ax, ay, (rand.nextInt(30) + 70)/100.0f * s, c.clone(), d));
 	}
 }

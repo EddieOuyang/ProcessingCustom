@@ -4,7 +4,7 @@ import java.util.*;
 public class Engine extends PApplet{
 	private Sparkle spark;
 	public Engine() {
-		spark = new Sparkle(500,200,15,20,20,0,2.5f,0.9f);
+		spark = new Sparkle(0,400,5,5,20,0,0,0.4f);
 		spark.setColor(255, 255, 255);
 	}
 	
@@ -24,9 +24,9 @@ public class Engine extends PApplet{
 	}
 	
 	public void draw() {
-		background(0);
+		background(255);
 		spark.draw(this);
-		spark.spawn(2);
+		spark.spawn(3);
 		if(frameCount%3 == 0) spark.move();
 		int cycle = frameCount*5%1530;
 		int part = cycle%255;
@@ -44,6 +44,12 @@ public class Engine extends PApplet{
 		case 5: spark.setColor(255, 0, 255 - part);
 			break;
 		}
+		idle(frameCount*3);
+	}
+	
+	private void idle(int t) {
+		double a = Math.toRadians(t);
+		spark.setLocation(displayHeight/2 * 0.6f*(float)Math.cos(a) + displayWidth/2, displayHeight/2 * (1 + 0.6f*(float)Math.sin(a)));
 	}
 	
 	public static void main(String[] args) {

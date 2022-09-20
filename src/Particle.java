@@ -39,6 +39,6 @@ public class Particle {
 	
 	//is dead
 	public boolean dead() {
-		return size <= 0;
+		return size/fullSize <= 0.1;
 	}
 }
