@@ -49,14 +49,30 @@ public class Sparkle {
 	
 	//set spawn location
 	public void setLocation(float xi, float yi) {
-		x = xi;
-		y = yi;
+		x = Float.isNaN(xi) ? x:xi;
+		y = Float.isNaN(yi) ? y:yi;
 	}
 	
-	//
+	//set acceleration
 	public void setAcceleration(float xi, float yi) {
-		ax = xi;
-		ay = yi;
+		ax = Float.isNaN(xi) ? ax:xi;
+		ay = Float.isNaN(yi) ? ay:yi;
+	}
+	
+	//set spread
+	public void setSpread(float xi, float yi) {
+		spreadX = Float.isNaN(xi) ? spreadX:xi;
+		spreadY = Float.isNaN(yi) ? spreadY:yi;
+	}
+	
+	//set particle size
+	public void setSize(float si) {
+		s = si;
+	}
+	
+	//set particle decay rate
+	public void setDecay(float di) {
+		d = di;
 	}
 	
 	//spawn i new particles
@@ -64,7 +80,7 @@ public class Sparkle {
 		for(;i > 0; i--)particles.add(new Particle(x+rand.nextFloat()-0.5f,y+rand.nextFloat()-0.5f,rand.nextFloat()*spreadX*2-spreadX, rand.nextFloat()*spreadY*2-spreadY, ax, ay, (rand.nextInt(30) + 70)/100.0f * s, c.clone(), d));
 	}
 	
-	//spawn i new particles at (x,y)
+	//overload
 	public void spawn(int i, float x, float y) {
 		for(;i > 0; i--)particles.add(new Particle(x+rand.nextFloat()-0.5f,y+rand.nextFloat()-0.5f,rand.nextFloat()*spreadX*2-spreadX, rand.nextFloat()*spreadY*2-spreadY, ax, ay, (rand.nextInt(30) + 70)/100.0f * s, c.clone(), d));
 	}
