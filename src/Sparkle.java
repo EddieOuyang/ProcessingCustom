@@ -84,4 +84,9 @@ public class Sparkle {
 	public void spawn(int i, float x, float y) {
 		for(;i > 0; i--)particles.add(new Particle(x+rand.nextFloat()-0.5f,y+rand.nextFloat()-0.5f,rand.nextFloat()*spreadX*2-spreadX, rand.nextFloat()*spreadY*2-spreadY, ax, ay, (rand.nextInt(30) + 70)/100.0f * s, c.clone(), d));
 	}
+	
+	//overload 
+	public void spawn(int i, float x, float y, float spreadX, float spreadY, float s, float ax, float ay, float d, float[] c) {
+		for(;i > 0; i--)particles.add(new Particle(x+rand.nextFloat()-0.5f,y+rand.nextFloat()-0.5f,rand.nextFloat()*spreadX*2-spreadX, rand.nextFloat()*spreadY*2-spreadY, ax, ay, (rand.nextInt(30) + 70)/100.0f * s, c.clone(), d));
+	}
 }
