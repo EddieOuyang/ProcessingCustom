@@ -92,7 +92,7 @@ public class Engine extends PApplet{
 		case 5: spark.setColor(255, 0, 255 - part);
 			break;
 		}
-//		idle(frameCount*3);
+		idle(frameCount*3);
 	}
 	
 	private int convertOption(String s) {
@@ -117,6 +117,7 @@ public class Engine extends PApplet{
 	private void idle(int t) {
 		double a = Math.toRadians(t);
 		spark.setLocation(displayHeight/2 * 0.6f*(float)Math.cos(a) + displayWidth/2, displayHeight/2 * (1 + 0.6f*(float)Math.sin(a)));
+		spark.spawn(spawnAmt, displayHeight/2 * 0.6f*(float)Math.cos(Math.PI + a) + displayWidth/2, displayHeight/2 * (1 + 0.6f*(float)Math.sin(Math.PI + a)));
 	}
 	
 	public static void main(String[] args) {
