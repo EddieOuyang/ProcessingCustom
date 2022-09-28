@@ -23,6 +23,13 @@ public class Sparkle {
 		d = di;
 	}
 	
+	// no args cons
+	public Sparkle() {
+		rand = new Random();
+		particles = new ArrayList<Particle>();
+		kill = new ArrayList<Particle>();
+	}
+		
 	//draw particle system
 	public void draw(PApplet pa) {
 		for(Particle p:particles) {
